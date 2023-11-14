@@ -1,0 +1,7 @@
+Node version manager
+-Permite tener varias versiones instaladas de node y cambiar a cualquiera de ellas cuando sea necesario
+
+JS es blocking y single threaded(un hilo de ejecución)
+
+libuv es una librería que permite ejecutar código asíncrono
+
