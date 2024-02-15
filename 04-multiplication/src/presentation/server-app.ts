@@ -14,7 +14,7 @@ export class ServerApp {
     
     
     
-    static run({ base, limit, showTable, fileDestination, fileName }: RunOptions){
+    static run({ base, limit, showTable, fileDestination, fileName }: RunOptions){ //Al ser estatico no es necesario crear la instancia de la clase
         console.log('Server running...');
 
         const table = new CreateTable().execute({ base, limit });
@@ -27,9 +27,11 @@ export class ServerApp {
 
         if ( showTable ) console.log(table);
 
+        //console.log({wasCreated});
+
         ( wasCreated )
             ? console.log('File created!')
-            : console.log('File not created!');
+            : console.error('File not created!');
 
 
     }
