@@ -1,5 +1,12 @@
 import { CheckService } from "../domain/use-cases/checks/check-service";
+import { FileSystemDatasource } from "../infrastructure/datasources/file-system.datasource";
+import { LogRepositoryImpl } from "../infrastructure/repositories/log.repository.impl";
 import { CronService } from "./cron/cron-service";
+
+
+const fileSystemLogRepository = new LogRepositoryImpl(
+    new FileSystemDatasource()// como ejemplo esto tambiem prodria ser un servicio de base de datos, como mongo, postgres, etc
+);
 
 
 export class Server {
@@ -10,8 +17,9 @@ export class Server {
         CronService.createJob(
             '*/5 * * * * *',
             () => {
-                const url = 'https://www.google.com';
+                const url = 'https://google.com';
                 new CheckService(
+                    fileSystemLogRepository,
                     () => {
                         console.log(`${url} is ok.`);
                     },
