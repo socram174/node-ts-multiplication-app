@@ -1,13 +1,16 @@
 import { envs } from "../config/plugins/envs.plugin";
 import { CheckService } from "../domain/use-cases/checks/check-service";
+import { SendEmailLogs } from "../domain/use-cases/email/send-email-logs";
 import { FileSystemDatasource } from "../infrastructure/datasources/file-system.datasource";
 import { LogRepositoryImpl } from "../infrastructure/repositories/log.repository.impl";
 import { CronService } from "./cron/cron-service";
+import { EmailService } from "./email/email.service";
 
 
 const fileSystemLogRepository = new LogRepositoryImpl(
     new FileSystemDatasource()// como ejemplo esto tambiem prodria ser un servicio de base de datos, como mongo, postgres, etc
 );
+const emailService = new EmailService();
 
 
 export class Server {
@@ -15,7 +18,19 @@ export class Server {
     public static start(){ //Si no se indica que es publico, por defecto es publico, pero es buena practica indicarlo
         console.log("Server started...");
 
-        //Mandar email
+        //todo: Mandar email
+        // new SendEmailLogs(
+        //     emailService,
+        //     fileSystemLogRepository
+        // ).execute([
+        //          'correo1@gmail.com',
+        //          'correo2@hotmail.com'
+        // ])
+
+        // emailService.sendEmailWithFileSystemLogs([
+        //     'correo1@gmail.com',
+        //     'correo2@hotmail.com'
+        // ]);
         
         // CronService.createJob(
         //     '*/5 * * * * *',
