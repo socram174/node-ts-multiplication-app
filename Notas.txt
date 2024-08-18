@@ -11,3 +11,4 @@ certificado y key seccion 13 http2: openssl req -x509 -sha256 -nodes -days 365 -
 Sitios/herramientas/blogs utiles
 
 https://web.dev/articles/performance-http2?hl=es-419
+https://gist.github.com/Klerith/3ba17e86dc4fabd8301a59699b9ffc0b
