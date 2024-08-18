@@ -5,3 +5,9 @@ JS es blocking y single threaded(un hilo de ejecución)
 
 libuv es una librería que permite ejecutar código asíncrono
 
+certificado y key seccion 13 http2: openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout server.key -out server.crt (en windows ejecutar en git bash)
+
+
+Sitios/herramientas/blogs utiles
+
+https://web.dev/articles/performance-http2?hl=es-419
